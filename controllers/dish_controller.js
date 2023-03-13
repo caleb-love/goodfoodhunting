@@ -6,7 +6,7 @@ const ensureLoggedIn = require("./../middlewares/ensure_logged_in");
 
 const db = require("../db");
 
-router.get("/", (req, res) => {
+router.get("/", ensureLoggedIn, (req, res) => {
   // console.log(req.session);
   const sql = "SELECT * FROM dishes;";
 
@@ -39,9 +39,7 @@ router.get("/dishes/:id", ensureLoggedIn, (req, res) => {
 router.post("/dishes", ensureLoggedIn, (req, res) => {
   const sql = `insert into dishes (title, image_url, user_id) values ($1, $2, $3);`;
 
-  db.query(
-    sql,
-    [req.body.title, req.body.image_url, req.body.userId],
+  db.query(sql, [req.body.title, req.body.image_url, req.body.userId],
     (err, dbRes) => {
       res.redirect("/");
     }
@@ -63,7 +61,7 @@ router.get("/dishes/:dish_id/edit", (req, res) => {
 });
 
 router.put("/dishes/:dish_id", (req, res) => {
-  let sql = `update dishes set title = $1, image_url = $2 where id = $3;`;
+  const sql = `update dishes set title = $1, image_url = $2 where id = $3;`;
 
   db.query(
     sql,

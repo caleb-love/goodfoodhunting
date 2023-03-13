@@ -4,28 +4,35 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Foodstagram</title>
     <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
     <header>
-      <% if (isLoggedIn()) { %>
-      <form action="/sessions" method="post">
-        <input type="hidden" name="_method" value="delete" />
-        <button>logout</button>
-      </form>
-      <p>logged in as <%= currentUser.email %></p>
-      <% } %>
+      <h1 class="foodstagram">Foodstagram</h1>
 
       <nav>
-        <a href="/">home</a>
-        <a href="/login">login</a>
         <% if (isLoggedIn()) { %>
-        <a href="/dishes/new">share a dish</a>
+          <a href="/">Home</a>
+          <a href="/dishes/new">New Post</a>
         <% } %>
+        <% if (isLoggedIn() === false) { %>
+          <a href="/login">Login</a>
+          <a href="/accounts/signup">Sign Up</a>
+          <% } %>
       </nav>
     </header>
 
     <%- body %>
+
+    <footer>
+      <% if (isLoggedIn()) { %>
+        <form action="/sessions" method="post">
+          <input type="hidden" name="_method" value="delete" />
+          <button>Logout</button>
+        </form>
+        <p>Logged in as <%= currentUser.email %></p>
+        <% } %>
+    </footer>
   </body>
 </html>

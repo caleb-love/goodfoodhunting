@@ -1,19 +1,35 @@
 body {
-    background-color: mistyrose;
+    background-color: lightgray;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.foodstagram {
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  font-size: 50pt;
 }
 
 img {
-    width: 100px;
+    width: 50%;
   }
   
   .dishes {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 5px;
+    gap: 10px;
   }
   
   .ui-card {
-    background-color: floralwhite;
+    background-color: slategray;
   }
   
   .ui-card img {

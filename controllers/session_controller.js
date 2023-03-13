@@ -12,11 +12,11 @@ router.post("/sessions", (req, res) => {
   // console.log(req.session);
   // create session
 
-  const {email, password} = req.body
+  const {username, email, password} = req.body
 
   const sql = `SELECT * FROM users WHERE email = $1;`;
 
-  db.query(sql, [email], (err, dbRes) => {
+  db.query(sql, [email || username], (err, dbRes) => {
     if (dbRes.rows.length === 0) {
       res.render("login");
       return;

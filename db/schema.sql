@@ -8,6 +8,8 @@ CREATE TABLE dishes (
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
+    full_name TEXT,
+    username TEXT,
     email TEXT,
     password_digest TEXT
 );
@@ -18,6 +20,4 @@ INSERT INTO dishes (title, image_url) VALUES ('cake', 'https://i.pinimg.com/736x
 INSERT INTO dishes (title, image_url) VALUES ('Bahn Mi', 'https://images.dailyhive.com/20180517121125/11115728_745607882234040_801694177594312922_o.jpg');
 
 
--- INSERT INTO users (email) VALUES ('caleblove@live.com');
--- INSERT INTO users (email, password_digest) VALUES ('caleblove+ga.com', '$2b$10$A0S6ZTdOKnKWPZufyE7ozup7d3HJ/YJrMCBMYu9z6Vb0o4.HIGgJ6');
-
+INSERT INTO users (full_name, username, email, password_digest) VALUES ('Caleb Love', 'caleblove', 'caleblove@live.com', '$2b$10$A0S6ZTdOKnKWPZufyE7ozup7d3HJ/YJrMCBMYu9z6Vb0o4.HIGgJ6');

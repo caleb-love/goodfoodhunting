@@ -1,14 +1,15 @@
-<h1>dish details</h1>
+<h1>Dish Details</h1>
 
-<h2><%= dish.id %></h2>
+<h2>Dish <%= dish.id %></h2>
 
 <p><%= dish.title %></p>
 
 <img src="<%= dish.image_url %>" alt="" />
 
+
+<button><a href="/dishes/<%= dish.id %>/edit">Edit</a></button>
 <form action="/dishes/<%= dish.id %>" method="post">
   <input type="hidden" name="_method" value="delete" />
-  <button>delete</button>
+  <button>Delete</button>
 </form>
 
-<a href="/dishes/<%= dish.id %>/edit">edit</a>
