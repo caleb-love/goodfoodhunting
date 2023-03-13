@@ -1,0 +1,11 @@
+<form action="/session" method="post">
+    <input type="hidden" name="_method" value="delete" />
+    <button>logout</button>
+</form>
+
+<a href="/dishes/new">share a dish</a>
+    <h1>foodstagram</h1>
+    <% for (let dish of dishes) { %>
+
+    <h2><a href="/dishes/<%= dish.id %>"><%= dish.title %></a></h2>
+    <img src="<%= dish.image_url %>" alt="" />
