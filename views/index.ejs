@@ -1,0 +1,16 @@
+
+
+<a href="/share">share a dish</a>
+
+<% dishes.forEach(dish => { %>
+
+  <h2>
+    <a href="/dishes/<%= dish.id %>">
+      <%= dish.name %>
+    </a>
+  </h2>
+  <img src="<%= dish.image_url %>" alt="">
+
+<% }) %>
+
+<%- contentFor('heri') %>

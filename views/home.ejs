@@ -1,11 +1,12 @@
-<form action="/session" method="post">
-    <input type="hidden" name="_method" value="delete" />
-    <button>logout</button>
-</form>
+<h1>foodstagram</h1>
 
-<a href="/dishes/new">share a dish</a>
-    <h1>foodstagram</h1>
-    <% for (let dish of dishes) { %>
+<section class="dishes">
+  <% for (let dish of dishes) { %>
 
-    <h2><a href="/dishes/<%= dish.id %>"><%= dish.title %></a></h2>
+  <div class="ui-card">
     <img src="<%= dish.image_url %>" alt="" />
+    <h2><a href="/dishes/<%= dish.id %>"><%= dish.title %></a></h2>
+  </div>
+
+  <% } %>
+</section>
