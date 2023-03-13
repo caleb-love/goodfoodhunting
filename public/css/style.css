@@ -20,6 +20,7 @@ body {
 
 img {
     width: 50%;
+    border: 1px solid black;
   }
   
   .dishes {
@@ -29,7 +30,7 @@ img {
   }
   
   .ui-card {
-    background-color: slategray;
+    background-color: whitesmoke;
   }
   
   .ui-card img {

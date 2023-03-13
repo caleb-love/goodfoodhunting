@@ -4,7 +4,9 @@
 
 <p><%= dish.title %></p>
 
+<div>
 <img src="<%= dish.image_url %>" alt="" />
+</div>
 
 
 <button><a href="/dishes/<%= dish.id %>/edit">Edit</a></button>
@@ -12,4 +14,3 @@
   <input type="hidden" name="_method" value="delete" />
   <button>Delete</button>
 </form>
-

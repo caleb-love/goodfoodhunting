@@ -26,13 +26,19 @@
     <%- body %>
 
     <footer>
+      <div>
       <% if (isLoggedIn()) { %>
         <form action="/sessions" method="post">
           <input type="hidden" name="_method" value="delete" />
           <button>Logout</button>
         </form>
-        <p>Logged in as <%= currentUser.email %></p>
+        <p>Logged in as <%= currentUser.username %></p>
         <% } %>
+      </div>
+
+      <div>
+        <p>&copy; Copyright <script>document.write(new Date().getFullYear())</script>, Caleb Love.</p>
+      </div>
     </footer>
   </body>
 </html>
