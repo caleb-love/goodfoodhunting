@@ -1,7 +1,7 @@
 const { Pool } = require("pg"); // connection pool
 
 // establish a pool of connections that we can use to talk to the database
-const consfig = {
+const config = {
   dev: {
     database: 'goodfoodhunting',
   },
@@ -10,4 +10,4 @@ const consfig = {
   },
 }
 
-module.exports = new Pool(process.env.DATABASE_URL ? consfig.prod : consfig.dev);
+module.exports = new Pool(process.env.DATABASE_URL ? config.prod : config.dev);

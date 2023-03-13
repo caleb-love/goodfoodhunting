@@ -2,21 +2,21 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 
-const db = require("../db");
+const db = require("./../db");
 
 router.get("/login", (req, res) => {
   res.render("login");
 });
 
 router.post("/sessions", (req, res) => {
-  console.log(req.session);
+  // console.log(req.session);
   // create session
 
   const {email, password} = req.body
 
-  const sql = `SELECT * FROM users WHERE email = '${email}';`;
+  const sql = `SELECT * FROM users WHERE email = $1;`;
 
-  db.query(sql, (err, dbRes) => {
+  db.query(sql, [email], (err, dbRes) => {
     if (dbRes.rows.length === 0) {
       res.render("login");
       return;
@@ -27,7 +27,6 @@ router.post("/sessions", (req, res) => {
     bcrypt.compare(password, user.password_digest, (err, result) => {
       if (result) {
         req.session.userId = user.id
-        req.session.email = user.email
         res.redirect("/");
       } else {
         res.render("login");

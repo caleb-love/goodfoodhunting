@@ -1,3 +1,5 @@
+const db = require('./../db')
+
 const setCurrentUser = (req, res, next) => {
     const { userId } = req.session;
     res.locals.currentUser = {};
